@@ -1,4 +1,4 @@
-@import "./reset";
+@import "./reset.scss";
 @import "./media_gueries.scss";
 
 $color1: #845EC2;
@@ -7,6 +7,9 @@ $color3: #FF6F91;
 $color4: #FF9671;
 $color5: #FFC75F;
 $color6: #F9F871;
+$grid-gap: 2rem;
+
+
 
 html {
   font-size: 62.5%;
@@ -367,42 +370,42 @@ body {
     }
   }
 
-  .grid_3 {
-    margin-right: 2rem;
-    margin-left: 2rem;
-   
+  .grid_1_3 {
+    margin-right: $grid-gap;
+    margin-left: $grid-gap;
+    width: calc((100% - #{$grid-gap} * 6) / 3);
     float: left;
   }
-
 }
 
 
 
 
-.skills {
-  position: relative;
-margin-top: 12rem;
+.skills_wrapper {
+    position: relative;
+    margin-top: 8rem;
 
-
-.skill_icon {
-  color: $color1;
-  font-size: 3rem;
-}
-
-h3.heading {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.row > * {
-  @include respond(tab-port){
-    text-align: center;
+  .row > * {
+    @include respond(tab-port){
+      text-align: center;
+    }
   }
-}
 
-p {
-  line-height: 1.5;
-  color: lighten(#000, 10);//fallback
-  color: rgba(#000, 0.7);
-}
+  h2.skills_heading {
+    font-size: 3rem;
+    margin-top: 2rem;
+  }
+
+  .skill_heading {
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    line-height: 1.5;
+    color: rgba(#000, 0.7);
+    text-align: justify;
+  }
 }
