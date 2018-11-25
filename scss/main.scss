@@ -1,6 +1,8 @@
 @import "./reset.scss";
 @import "./media_gueries.scss";
 
+
+
 $color1: #845EC2;
 $color2: #D65DB1;
 $color3: #FF6F91;
@@ -338,6 +340,7 @@ body {
   }
 }
 
+
 //******************************* grid *********************
 
 
@@ -376,47 +379,132 @@ body {
     width: calc((100% - #{$grid-gap} * 6) / 3);
     float: left;
   }
+  .grid_2_2 {
+    margin-right: $grid-gap;
+    margin-left: $grid-gap;
+    width: calc((100% - #{$grid-gap}*4) / 2);
+    float: left;
+  }
 }
 
 
 
+//**********************section aboutUs *****************************
 
 .skills_wrapper {
-    position: relative;
-    margin-top: 8rem;
+  position: relative;
+  margin-top: 8rem;
 
   .row > * {
     @include respond(tab-port){
-      text-align: center;
+       text-align: center;
+     }
+  }
+
+    ion-icon {
+      font-size: 30px;
+      color: $color1;
+    }
+
+    h2.skills_heading {
+      line-height: 1.5;
+      letter-spacing: 1.5px;
+      font-size: 3rem;
+      margin-top: 2rem;
+      color: $color1;
+    }
+
+    .skill_heading {
+      line-height: 1.5;
+      letter-spacing: 1.5px;
+      font-size: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      display: inline-block;
+      color: $color1;
+      vertical-align: 0.6rem;
+    }
+
+    p {
+      line-height: 1.5;
+      color: rgba(#000, 0.5);
+      text-align: justify;
+}
+}
+
+
+//*************************** section projects style *********************
+
+
+.projects_heading {
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  color: $color1;
+  } 
+
+//********** one project card **************
+
+.project_wrapper {
+  background-image: linear-gradient(to left top, $color2, $color1);
+  border-radius: 10px;
+  padding: 5px;
+  overflow: hidden;
+  box-shadow: -2px 1px 1px lighten(#000, 15);//fallback
+  box-shadow: -2px 1px 1px rgba(#000, 0.5);
+
+  .top_of_project_wrapper {
+    position: relative;
+
+    img {
+      cursor: pointer;
+      width: 100%;
+      transition: all .5s;
+      filter: brightness(1);
+      border-radius: 8px;
+
+      &:hover {
+        filter: brightness(0.7);
+      }
+    }
+
+    .buttons {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+
+      .button {
+
+        span {
+          font-size: 1.8rem;
+        }
+      }
     }
   }
 
-  ion-icon {
-    font-size: 30px;
-    color: $color1;
-  }
+  .content {
+    padding: 2rem;
+    position: relative;
 
-  h2.skills_heading {
-    line-height: 1.5;
-    letter-spacing: 1.5px;
-    font-size: 3rem;
-    margin-top: 2rem;
-    color: $color1;
-  }
+    .project_heading {
+      position: absolute;
+      top: -2.5rem;
+      left: 2.5rem;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 5px;
+      font-size: 2rem;
+      color: $color1;
+    }
 
-  .skill_heading {
-    line-height: 1.5;
-    letter-spacing: 1.5px;
-    font-size: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    display: inline-block;
-    color: $color1;
-  }
-
-  p {
-    line-height: 1.5;
-    color: rgba(#000, 0.5);
-    text-align: justify;
+    p {
+      margin-top: 2rem;
+      line-height: 1.5;
+      color: lighten($color4, 15);
+      text-align: justify;
+    }
   }
 }
+
