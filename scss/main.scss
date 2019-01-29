@@ -374,8 +374,8 @@ body {
   }
 
   .grid_1_3 {
-    margin-right: $grid-gap;
-    margin-left: $grid-gap;
+    margin-right: ($grid-gap)/2;
+    margin-left: ($grid-gap)/2;
     width: calc((100% - #{$grid-gap} * 6) / 3);
     float: left;
   }
@@ -383,6 +383,12 @@ body {
     margin-right: $grid-gap;
     margin-left: $grid-gap;
     width: calc((100% - #{$grid-gap}*4) / 2);
+    float: left;
+  }
+  .grid_2_3 {
+    margin-right: ($grid-gap)/2;
+    margin-left: ($grid-gap)/2;
+    width: calc((100% - #{$grid-gap} * 3) / 3 * 2);
     float: left;
   }
 }
@@ -510,6 +516,142 @@ body {
   }
 }
 
+//************************* section team style *********************
+
+#team {
+  margin-top: 12rem;
+
+  h2.team_heading {
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    color: $color1;
+  }
+
+  .person_card {
+    margin-bottom: 3rem;
+    background: rgba(white, 0.7);
+    box-shadow: 2px 2px 2px lighten($color3, 15);//fallback
+    box-shadow: 2px 2px 2px rgba($color3, 0.5);
+
+    .person_heading{
+      font-size: 2rem;
+      line-height: 1.5;
+      letter-spacing: 2px;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .row {
+    position: relative;
+
+
+    &:nth-child(odd) {
+      .grid_1_3 {
+        float: right;
+        @include respond(tab-port) {
+          float: left;
+        }
+      }
+    }
+    .grid_1_3 {
+      @include respond(tab-port) {
+        margin-bottom: 0 !important;
+      }
+    .grid_2_3 {
+      @include respond(tab-port) {
+        margin-top: 0 !important;
+      }
+    }
+  }
+}
+
+  .photo_person {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 2px 1px 2px rgba(54, 55, 61, 0.5);
+    margin: 0 auto;
+    border-radius: 10px;
+  
+
+    img {
+      width: 100%;
+      transition: all 1s;
+      filter: brightness(1);
+    }
+
+    @include respond(tab-port){
+      max-width: 400px;
+    }
+  
+    @include respond(phone){
+      max-width: 300px;
+    }
+  
+    &:hover {
+      & > img {
+        transform: scale(1.2);
+        filter: brightness(0.7);
+      }
+    }
+
+
+
+  }
+
+  .text {
+    padding: 2rem;
+
+    h3 {
+      line-height: 1;
+      @include respond(tab-port) {
+        text-align: center;
+      }
+    }
+
+    p {
+      font-size: 2rem;
+      line-height: 1.5;
+      color: rgba(#000, 0.5);
+      text-align: justify;
+      
+    }
+
+    .contact_icons {
+      @include respond(tab-port) {
+        text-align: center;
+      }
+
+
+      .contact_icon {
+        font-size: 4rem;
+        color: $color2;
+        transition: all 0.3s;
+
+        ion-icon {
+          font-size: 30px;
+          margin-top: 1.5rem;
+          color: $color1;
+          filter: brightness(1);
+        }
+
+        &:not(:last-child) {
+          margin-right: 1.5rem;
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+
 //************************** footer style ***************************
 
 .copy_rights {
@@ -544,6 +686,10 @@ body {
         &:hover,
         &:active {
           opacity: 0.7;
+
+          ion-icon {
+            margin-top: 1px;;
+          }
         }
       }
     }
